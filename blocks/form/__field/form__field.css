@@ -1,0 +1,10 @@
+.form__field {
+  border: none;
+  border-bottom: 1px solid rgb(0 0 0 / 20%);
+  margin: 0;
+  padding: 0;
+}
+
+.form__field:first-of-type {
+  margin-bottom: 30px;
+}

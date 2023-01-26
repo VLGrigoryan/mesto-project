@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <a class="header__logo" href="#"></a>
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__container">
+        <div class="profile__avatar">
+          <img class="profile__avatar-image" src="./images/image.jpg" alt="profile picture">
+        </div>
+        <div class="profile__info">
+          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+          <p class="profile__info-activity">Исследователь океана</p>
+        </div>
+        <button class="profile__info-edit-button" onclick="openForm()"></button>
+      </div>
+      <div class="profile__actions">
+        <button class="profile__addpost-button"></button>
+      </div>
+    </section>
+    <section class="elements">
+      <div class="element">
+        <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <div class="element__post-info">
+          <h2 class="element__post-heading">Карачаевск</h2>
+          <figure class="element__post-reactions-container">
+            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
+              ondblclick="this.className='element__post-like-button'"></button>
+          </figure>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__post-image" src="./images/kirill-pershin-1404681-unsplash.png" alt="">
+        <div class="element__post-info">
+          <h2 class="element__post-heading">Гора Эльбрус</h2>
+          <figure class="element__post-reactions-container">
+            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
+              ondblclick="this.className='element__post-like-button'"></button>
+          </figure>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__post-image" src="./images/kirill-pershin-1556355-unsplash.png" alt="">
+        <div class="element__post-info">
+          <h2 class="element__post-heading">Домбай</h2>
+          <figure class="element__post-reactions-container">
+            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
+              ondblclick="this.className='element__post-like-button'"></button>
+          </figure>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__post-image" src="./images/kirill-pershin-1404681-unsplash.png" alt="">
+        <div class="element__post-info">
+          <h2 class="element__post-heading">Гора Эльбрус</h2>
+          <figure class="element__post-reactions-container">
+            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
+              ondblclick="this.className='element__post-like-button'"></button>
+          </figure>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__post-image" src="./images/kirill-pershin-1556355-unsplash.png" alt="">
+        <div class="element__post-info">
+          <h2 class="element__post-heading">Домбай</h2>
+          <figure class="element__post-reactions-container">
+            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
+              ondblclick="this.className='element__post-like-button'"></button>
+          </figure>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <div class="element__post-info">
+          <h2 class="element__post-heading">Карачаево-Ч...</h2>
+          <figure class="element__post-reactions-container">
+            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
+              ondblclick="this.className='element__post-like-button'"></button>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2020. Mesto Russia</p>
+  </footer>
+  <section id="profile-editor" class="profile-editor">
+    <div class="form__container">
+      <button type="button" class="form__close-button" onclick="closeForm()"></button>
+      <form class="form__profile-user-edit">
+        <h2 class="form__heading">Редактировать профиль</h2>
+        <div class="form__main-container">
+          <fieldset class="form__field form__username-input-container">
+            <label for="username" class="form__field-item"></label>
+            <input type="text" id="profile-user" name="username" placeholder="имя пользователя" value="Жак-Ив Кусто"
+              class="form__field-item form__field-item_el_username">
+          </fieldset>
+          <fieldset class="form__field form__activity-input-container">
+            <label for="activity"></label>
+            <input type="text" id="activity" name="activity" placeholder="деятельность" value="Исследователь океана"
+              class="form__field-item form__field-item_el_activity">
+          </fieldset>
+          <button type="submit" class="form__save-button">Сохранить</button>
+        </div>
+      </form>
+  </section>
+  <script>
+    function openForm() {
+      document.getElementById("profile-editor").style.opacity = "1";
+      document.getElementById("profile-editor").style.visibility = "visible";
+    }
+    function closeForm() {
+      document.getElementById("profile-editor").style.opacity = "0";
+      document.getElementById("profile-editor").style.visibility = "hidden";
+    }
+  </script>
+</body>
+
+</html>
