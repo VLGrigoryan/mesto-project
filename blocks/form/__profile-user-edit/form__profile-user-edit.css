@@ -1,9 +1,12 @@
 .form__profile-user-edit {
   margin: 34px auto 37px;
+  max-width: 358px;
+  width: 100%;
 }
 
 @media screen and (max-width: 615px) {
   .form__profile-user-edit {
     margin: 25px auto;
+    max-width: 238px;
   }
 }

@@ -16,78 +16,60 @@
   <main class="content">
     <section class="profile">
       <div class="profile__container">
-        <div class="profile__avatar">
-          <img class="profile__avatar-image" src="./images/image.jpg" alt="profile picture">
-        </div>
+        <img class="profile__avatar-image" src="./images/image.jpg" alt="profile picture">
         <div class="profile__info">
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-activity">Исследователь океана</p>
         </div>
-        <button class="profile__info-edit-button" onclick="openForm()"></button>
+        <button type="button" class="profile__info-edit-button"></button>
       </div>
-      <div class="profile__actions">
-        <button class="profile__addpost-button"></button>
-      </div>
+      <button type="button" class="profile__addpost-button"></button>
     </section>
     <section class="elements">
       <div class="element">
-        <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg"
+          alt="Церковь Георгия Победоносца. Шоанинский храм">
         <div class="element__post-info">
           <h2 class="element__post-heading">Карачаевск</h2>
-          <figure class="element__post-reactions-container">
-            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
-              ondblclick="this.className='element__post-like-button'"></button>
-          </figure>
+          <button type="button" class="element__post-like-button"></button>
         </div>
       </div>
       <div class="element">
-        <img class="element__post-image" src="./images/kirill-pershin-1404681-unsplash.png" alt="">
+        <img class="element__post-image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
         <div class="element__post-info">
           <h2 class="element__post-heading">Гора Эльбрус</h2>
-          <figure class="element__post-reactions-container">
-            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
-              ondblclick="this.className='element__post-like-button'"></button>
-          </figure>
+          <button type="button" class="element__post-like-button" id="like"
+            onclick="this.className='element__post-like-button_chekhed' "
+            ondblclick="this.className='element__post-like-button'"></button>
         </div>
       </div>
       <div class="element">
-        <img class="element__post-image" src="./images/kirill-pershin-1556355-unsplash.png" alt="">
+        <img class="element__post-image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
         <div class="element__post-info">
           <h2 class="element__post-heading">Домбай</h2>
-          <figure class="element__post-reactions-container">
-            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
-              ondblclick="this.className='element__post-like-button'"></button>
-          </figure>
+          <button type="button" class="element__post-like-button"></button>
         </div>
       </div>
       <div class="element">
-        <img class="element__post-image" src="./images/kirill-pershin-1404681-unsplash.png" alt="">
+        <img class="element__post-image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
         <div class="element__post-info">
           <h2 class="element__post-heading">Гора Эльбрус</h2>
-          <figure class="element__post-reactions-container">
-            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
-              ondblclick="this.className='element__post-like-button'"></button>
-          </figure>
+          <button type="button" class="element__post-like-button"></button>
         </div>
       </div>
       <div class="element">
-        <img class="element__post-image" src="./images/kirill-pershin-1556355-unsplash.png" alt="">
+        <img class="element__post-image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
         <div class="element__post-info">
           <h2 class="element__post-heading">Домбай</h2>
-          <figure class="element__post-reactions-container">
-            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
-              ondblclick="this.className='element__post-like-button'"></button>
-          </figure>
+          <button type="button" class="element__post-like-button"></button>
         </div>
       </div>
       <div class="element">
-        <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="">
+        <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg"
+          alt="Церковь Георгия Победоносца. Шоанинский храм">
         <div class="element__post-info">
           <h2 class="element__post-heading">Карачаево-Ч...</h2>
-          <figure class="element__post-reactions-container">
-            <button class="element__post-like-button" onclick="this.className='element__post-like-button_chekhed' "
-              ondblclick="this.className='element__post-like-button'"></button>
-          </figure>
+          <button type="button" class="element__post-like-button"></button>
         </div>
       </div>
     </section>
@@ -96,35 +78,21 @@
     <p class="footer__copyright">© 2020. Mesto Russia</p>
   </footer>
   <section id="profile-editor" class="profile-editor">
-    <div class="form__container">
-      <button type="button" class="form__close-button" onclick="closeForm()"></button>
+    <div class="form">
+      <button type="button" type="button" class="form__close-button"></button>
       <form class="form__profile-user-edit">
         <h2 class="form__heading">Редактировать профиль</h2>
         <div class="form__main-container">
-          <fieldset class="form__field form__username-input-container">
-            <label for="username" class="form__field-item"></label>
+          <fieldset class="form__field">
             <input type="text" id="profile-user" name="username" placeholder="имя пользователя" value="Жак-Ив Кусто"
-              class="form__field-item form__field-item_el_username">
-          </fieldset>
-          <fieldset class="form__field form__activity-input-container">
-            <label for="activity"></label>
+              class="form__field-item">
             <input type="text" id="activity" name="activity" placeholder="деятельность" value="Исследователь океана"
-              class="form__field-item form__field-item_el_activity">
+              class="form__field-item">
           </fieldset>
-          <button type="submit" class="form__save-button">Сохранить</button>
+          <button type="button" class="form__save-button">Сохранить</button>
         </div>
       </form>
   </section>
-  <script>
-    function openForm() {
-      document.getElementById("profile-editor").style.opacity = "1";
-      document.getElementById("profile-editor").style.visibility = "visible";
-    }
-    function closeForm() {
-      document.getElementById("profile-editor").style.opacity = "0";
-      document.getElementById("profile-editor").style.visibility = "hidden";
-    }
-  </script>
 </body>
 
 </html>

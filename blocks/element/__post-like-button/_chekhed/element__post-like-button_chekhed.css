@@ -1,11 +1,3 @@
 .element__post-like-button_chekhed {
-  width: 22px;
-  Height: 19px;
   background-image: url(../../../../images/Union.svg);
-  background-size: cover;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0 20px 0 30px;
-  cursor: pointer;
 }
