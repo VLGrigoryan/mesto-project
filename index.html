@@ -16,7 +16,7 @@
   <main class="content">
     <section class="profile">
       <div class="profile__container">
-        <img class="profile__avatar-image" src="./images/image.jpg" alt="profile picture">
+        <img class="profile__avatar-image" src="./images/image.jpg" alt="Жак-Ив Кусто">
         <div class="profile__info">
           <h1 class="profile__info-name">Жак-Ив Кусто</h1>
           <p class="profile__info-activity">Исследователь океана</p>
@@ -77,8 +77,8 @@
   </footer>
   <section id="profile-editor" class="profile-editor">
     <div class="form">
-      <button type="button" type="button" class="form__close-button"></button>
-      <form class="form__profile-user-edit">
+      <button type="button" class="form__close-button"></button>
+      <form name="profile-user-edit" class="form__profile-user-edit">
         <h2 class="form__heading">Редактировать профиль</h2>
         <div class="form__main-container">
           <fieldset class="form__field">
@@ -87,9 +87,10 @@
             <input type="text" id="activity" name="activity" placeholder="деятельность" value="Исследователь океана"
               class="form__field-item">
           </fieldset>
-          <button type="button" class="form__save-button">Сохранить</button>
+          <button type="submit" class="form__save-button">Сохранить</button>
         </div>
       </form>
+    </div>
   </section>
 </body>
 
