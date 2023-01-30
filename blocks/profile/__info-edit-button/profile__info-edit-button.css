@@ -5,7 +5,7 @@
   background-size: cover;
   border: none;
   padding: 0;
-  margin: 37px 0 0 18px;
+  margin: 37px auto 59px 18px;
   background-color: transparent;
   transition: opacity .5s;
   cursor: pointer;
@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 615px) {
   .profile__info-edit-button {
-    margin: 0 10px 16px;
+    margin: 0 10px 10px;
     width: 18px;
     height: 18px;
   }
