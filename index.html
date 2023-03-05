@@ -28,12 +28,12 @@
       <button type="button" class="profile__addpost-button"></button>
     </section>
     <section class="elements">
-      <div class="element">
+      <!-- <div class="element">
         <img class="element__post-image" src="./images/kirill-pershin-1088404-unsplash.jpg"
           alt="Церковь Георгия Победоносца. Шоанинский храм">
         <div class="element__post-info">
           <h2 class="element__post-heading">Карачаевск</h2>
-          <button type="button" class="element__post-like-button"></button>
+          <button id="like-button" type="button" class="element__post-like-button"></button>
         </div>
       </div>
       <div class="element">
@@ -71,7 +71,7 @@
           <h2 class="element__post-heading">Карачаево-Ч...</h2>
           <button type="button" class="element__post-like-button"></button>
         </div>
-      </div>
+      </div> -->
     </section>
   </main>
   <footer class="footer">
@@ -84,16 +84,49 @@
         <h2 class="form__heading">Редактировать профиль</h2>
         <div class="form__main-container">
           <fieldset class="form__field">
-            <input type="text" id="profile-user" name="username" placeholder="имя пользователя" value="Жак-Ив Кусто"
+            <input type="text" id="user-name" name="username" placeholder="имя пользователя" value="Жак-Ив Кусто"
               class="form__field-item">
-            <input type="text" id="activity" name="activity" placeholder="деятельность" value="Исследователь океана"
-              class="form__field-item">
+            <input type="text" id="user-activity" name="activity" placeholder="деятельность"
+              value="Исследователь океана" class="form__field-item">
           </fieldset>
           <button type="submit" class="form__save-button">Сохранить</button>
         </div>
       </form>
     </div>
   </section>
+  <section class="elements-publisher">
+    <div class="form">
+      <button id="elementsPublisherCloseButton" type="button" class="form__close-button"></button>
+      <form name="profile-user-edit" class="form__profile-user-edit">
+        <h2 class="form__heading">Новое место</h2>
+        <div class="form__main-container">
+          <fieldset class="form__field">
+            <input type="text" id="post-name" name="postName" placeholder="Название" class="form__field-item">
+            <input type="text" id="post-url" name="postUrl" placeholder="Ссылка на картинку" class="form__field-item">
+          </fieldset>
+          <button id="savePostButton" type="submit" class="form__save-button">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="popup">
+    <figure class="popup__container">
+      <img class="popup__image" src="" alt="">
+      <figcaption class="popup__heading"></figcaption>
+      <button type="button" class="popup__close-button"></button>
+    </figure>
+  </section>
+  <template id="element-template">
+    <div id="element" class="element">
+      <button id="delete-button" type="button" class="element__post-delete-button"></button>
+      <img id="element-image" class="element__post-image" src="" alt="">
+      <div class="element__post-info">
+        <h2 id="element-name" class="element__post-heading"></h2>
+        <button id="like-button" type="button" class="element__post-like-button"></button>
+      </div>
+    </div>
+  </template>
+  <script src="script.js"></script>
 </body>
 
 </html>

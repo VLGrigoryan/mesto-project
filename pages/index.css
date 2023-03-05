@@ -21,7 +21,7 @@
 @import url(../blocks/element/__post-image/element__post-image.css);
 @import url(../blocks/element/__post-info/element__post-info.css);
 @import url(../blocks/element/__post-like-button/element__post-like-button.css);
-@import url(../blocks/element/__post-like-button/_chekhed/element__post-like-button_chekhed.css);
+@import url(../blocks/element/__post-like-button/_checked/element__post-like-button_checked.css);
 @import url(../blocks/profile-editor/profile-editor.css);
 @import url(../blocks/profile-editor/_opened/profile-editor_opened.css);
 @import url(../blocks/form/form.css);
@@ -31,3 +31,15 @@
 @import url(../blocks/form/__field/form__field.css);
 @import url(../blocks/form/__field-item/form__field-item.css);
 @import url(../blocks/form/__save-button/form__save-button.css);
+@import url(../blocks/elements-publisher/elements-publisher.css);
+@import url(../blocks/elements-publisher/_opened/elements-publisher_opened.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__heading/popup__heading.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/element/__post-delete-button/element__post-delete-button.css);
+
+
+
