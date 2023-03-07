@@ -3,7 +3,7 @@
   justify-content: flex-start;
 }
 
-@media screen and (max-width: 615px) {
+@media screen and (max-width: 878px) {
   .profile__container {
     align-items: center;
     justify-content: center;

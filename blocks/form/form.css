@@ -1,15 +1,14 @@
 .form {
-  display: flex;
-  position: relative;
-  max-width: 430px;
-  width: 100%;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 358px;
+  margin: 54px 36px 36.51px;
 }
 
 @media screen and (max-width: 615px) {
   .form {
-    max-width: 282px;
+    max-width: 238px;
+    margin: 75px 22px 25px;
   }
 }

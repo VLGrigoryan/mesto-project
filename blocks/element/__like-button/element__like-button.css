@@ -1,4 +1,4 @@
-.element__post-like-button {
+.element__like-button {
   width: 22px;
   Height: 19px;
   background-image: url(../../../images/like.svg);
@@ -10,6 +10,6 @@
   cursor: pointer;
 }
 
-.element__post-like-button:hover {
+.element__like-button:hover {
   opacity: 0.5;
 }
