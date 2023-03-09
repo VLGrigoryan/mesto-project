@@ -30,10 +30,8 @@ function closePopup(popup) {
 }
 
 popupCloseButtons.forEach((popupCloseButton) => {
-  popupCloseButton.addEventListener('click', (event) => {
-    const openedPopup = event.target.closest('.popup_opened');
-    closePopup(openedPopup);
-  });
+  const popup = popupCloseButton.closest('.popup');
+  popupCloseButton.addEventListener('click', (event) => { closePopup(popup) });
 });
 
 function openProfileEditForm() {
@@ -45,7 +43,7 @@ function openProfileEditForm() {
 
 profileEditButton.addEventListener('click', () => openProfileEditForm());
 
-function editedProfileFormSubmit(event) {
+function handleProfileForm(event) {
   event.preventDefault();
   profileName.textContent = nameInput.value;
   profileActivity.textContent = activityInput.value;
@@ -53,7 +51,7 @@ function editedProfileFormSubmit(event) {
   closePopup(profilePopup);
 };
 
-formProfileEdit.addEventListener('submit', editedProfileFormSubmit);
+formProfileEdit.addEventListener('submit', handleProfileForm);
 
 
 
@@ -96,9 +94,9 @@ function addCard(name, link) {
   renderCard(newCard);
 }
 
-formAddCard.addEventListener('submit', AddCardSubmit)
+formAddCard.addEventListener('submit', addCardSubmit)
 
-function AddCardSubmit(event) {
+function addCardSubmit(event) {
   event.preventDefault();
   const nameValue = cardName.value;
   const linkValue = cardLink.value;
