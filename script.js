@@ -94,9 +94,9 @@ function addCard(name, link) {
   renderCard(newCard);
 }
 
-formAddCard.addEventListener('submit', addCardSubmit)
+formAddCard.addEventListener('submit', submitAddCard)
 
-function addCardSubmit(event) {
+function submitAddCard(event) {
   event.preventDefault();
   const nameValue = cardName.value;
   const linkValue = cardLink.value;
