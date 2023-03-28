@@ -1,4 +1,4 @@
-import '../pages/index.css';
+import '../pages/style.css';
 import { initialCards, addCard, submitAddCard } from './cards.js';
 import { openPopup, closePopup } from './utils.js'
 import { openProfileEditForm, handleProfileForm } from './modal.js'
