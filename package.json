@@ -4,10 +4,10 @@
   "description": "Ссылки на сайт:https://vlgrigoryan.github.io/mesto-project/",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
+    "build": "mkdir -p dist && webpack --mode production",
     "dev": "webpack serve"
   },
-  "author": "V.Grigoryan",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.3",

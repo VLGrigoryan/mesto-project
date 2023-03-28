@@ -1,8 +1,8 @@
-import '../pages/style.css';
-import { initialCards, addCard, submitAddCard } from './cards.js';
-import { openPopup, closePopup } from './utils.js'
-import { openProfileEditForm, handleProfileForm } from './modal.js'
-import { enableValidation } from './validate.js'
+import './pages/style.css';
+import { initialCards, addCard, submitAddCard } from './components/cards.js';
+import { openPopup, closePopup } from './components/utils.js'
+import { openProfileEditForm, handleProfileForm } from './components/modal.js'
+import { enableValidation } from './components/validate.js'
 
 export const profileContainer = document.querySelector('.profile__container');
 export const profileEditButton = profileContainer.querySelector('.profile__info-edit-button');

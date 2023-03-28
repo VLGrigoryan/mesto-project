@@ -1,4 +1,4 @@
-import { formProfileEdit, formAddCard, validationSettings } from './index.js';
+import { formProfileEdit, formAddCard, validationSettings } from '../index.js';
 
 const setEventListeners = (form) => {
   const inputList = form.querySelectorAll(validationSettings.inputSelector);

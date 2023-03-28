@@ -1,7 +1,7 @@
 
 
 import {openPopup, closePopup} from  './utils.js';
-import {nameInput, activityInput, profileName, profileActivity, profilePopup} from  './index.js';
+import {nameInput, activityInput, profileName, profileActivity, profilePopup} from  '../index.js';
 
 function openProfileEditForm() {
   nameInput.value = profileName.textContent;
