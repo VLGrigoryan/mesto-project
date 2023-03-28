@@ -1,0 +1,14 @@
+.form__input-error {
+  display: block;
+  position: absolute;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 0;
+  visibility: hidden;
+  width: 358px;
+  color: #FF0000;
+}
+
+.form__input-error:first-of-type {
+  margin-top: -30px;
+}

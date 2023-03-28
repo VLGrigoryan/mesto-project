@@ -15,3 +15,11 @@
 .form__input:first-of-type {
   margin-bottom: 30px;
 }
+
+.form__input:invalid {
+  border-color: rgba(255, 0, 0, 1);
+}
+
+.form__input:valid {
+  border-color: rgb(0 0 0 / 20%);
+}
