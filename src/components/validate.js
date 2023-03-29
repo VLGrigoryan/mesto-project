@@ -1,8 +1,8 @@
 import { formProfileEdit, formAddCard, validationSettings } from '../index.js';
 
-const setEventListeners = (form) => {
-  const inputList = form.querySelectorAll(validationSettings.inputSelector);
-  const saveButton = form.querySelector(validationSettings.submitButtonSelector);
+const setEventListeners = (formElement) => {
+  const saveButton = formElement.querySelector(validationSettings.submitButtonSelector);
+  const inputList = Array.from(formElement.querySelectorAll(validationSettings.inputSelector));
 
   const showInputError = (inputElement) => {
     const errorMessage = inputElement.validationMessage;
@@ -40,7 +40,7 @@ const setEventListeners = (form) => {
   };
 
   const toggleButtonState = () => {
-    const isFormValid = form.checkValidity();
+    const isFormValid = formElement.checkValidity();
     if (isFormValid) {
       saveButton.classList.remove(validationSettings.inactiveButtonClass);
       saveButton.disabled = false;
