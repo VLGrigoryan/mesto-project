@@ -67,15 +67,21 @@ export const validationSettings = {
   },
 };
 
-enableValidation(validationSettings);
 
-cardPopupOpenButton.addEventListener('click', () => openPopup(cardPopup));
+cardPopupOpenButton.addEventListener('mousedown', () => {
+  openPopup(cardPopup);
+  enableValidation(validationSettings)
+}
+);
 
-profileEditButton.addEventListener('click', () => openProfileEditForm());
+profileEditButton.addEventListener('mousedown', () => {
+  openProfileEditForm();
+  enableValidation(validationSettings)
+});
 
 popupCloseButtons.forEach((popupCloseButton) => {
   const popup = popupCloseButton.closest('.popup');
-  popupCloseButton.addEventListener('click', (event) => { closePopup(popup) });
+  popupCloseButton.addEventListener('mousedown', (event) => { closePopup(popup) });
 });
 
 formAddCard.addEventListener('submit', submitAddCard)

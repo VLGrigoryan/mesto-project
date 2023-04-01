@@ -1,5 +1,5 @@
 import { openPopup, closePopup } from './utils.js';
-import {cardPopup, cardContainer, cardTemplate, cardName, cardLink, imagePopup, popupImageContainer, popupImage, popupCaption } from '../index.js';
+import { cardPopup, cardContainer, cardTemplate, cardName, cardLink, imagePopup, popupImageContainer, popupImage, popupCaption } from '../index.js';
 
 function createCard(name, link) {
 
