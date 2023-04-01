@@ -1,26 +1,28 @@
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => handleEscClose(evt, popup))
-  popup.addEventListener('click', (evt) => handleOverlayClick(evt, popup))
+  document.addEventListener('keydown', handleEscClose);
+  popup.addEventListener('mousedown', handleOverlayClick);
 };
 
 function closePopup(popup) {
   if (popup) {
     popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', (evt) => handleEscClose(evt, popup))
-    popup.removeEventListener('mousedown', (evt) => handleOverlayClick(evt, popup))
+    document.removeEventListener('keydown', handleEscClose);
+    popup.removeEventListener('mousedown', handleOverlayClick)
   }
 };
 
-function handleEscClose(evt, popup) {
+function handleEscClose(evt) {
   if (evt.key === 'Escape') {
-    closePopup(popup);
+    const openedPopup = document.querySelector('.popup_opened')
+    closePopup(openedPopup);
   }
 };
 
-function handleOverlayClick(evt, popup) {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(popup);
+function handleOverlayClick(evt) {
+  const openedPopup = document.querySelector('.popup_opened')
+  if (openedPopup && evt.target.classList.contains('popup_opened')) {
+    closePopup(openedPopup);
   }
 }
 
