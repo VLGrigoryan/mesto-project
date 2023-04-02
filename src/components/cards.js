@@ -24,7 +24,7 @@ function createCard(name, link) {
     openPopup(imagePopup);
     popupImage.src = link;
     popupImage.alt = name;
-    popupCaption.text = name;
+    popupCaption.textContent = name;
   });
 
   return cardElement;

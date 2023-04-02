@@ -67,17 +67,11 @@ export const validationSettings = {
   },
 };
 
+enableValidation(validationSettings)
 
-cardPopupOpenButton.addEventListener('mousedown', () => {
-  openPopup(cardPopup);
-  enableValidation(validationSettings)
-}
-);
+cardPopupOpenButton.addEventListener('mousedown', () => openPopup(cardPopup));
 
-profileEditButton.addEventListener('mousedown', () => {
-  openProfileEditForm();
-  enableValidation(validationSettings)
-});
+profileEditButton.addEventListener('mousedown', () => openProfileEditForm());
 
 popupCloseButtons.forEach((popupCloseButton) => {
   const popup = popupCloseButton.closest('.popup');
