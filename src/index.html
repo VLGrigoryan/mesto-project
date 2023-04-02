@@ -39,13 +39,13 @@
       <form id="profile-edit" name="profile-edit" class="form">
         <div class="form__main-container">
           <input type="text" id="user-name" name="username" placeholder="имя пользователя" class="form__input" required
-            minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-ЯёЁ0-9_ -]+$"
+            minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-ЯёЁ_ -]+$"
             data-error-empty-string="Вы пропустили это поле."
             data-error-semi-empty-string="Минимальное количество символов: 2. Длина текста сейчас: 1 символ."
             data-error-pattern="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
           <span class="form__input-error user-name-input-error"></span>
           <input type="text" id="user-activity" name="activity" placeholder="деятельность" class="form__input" required
-            minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-ЯёЁ0-9_ -]+$"
+            minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-ЯёЁ_ -]+$"
             data-error-empty-string="Вы пропустили это поле."
             data-error-semi-empty-string="Минимальное количество символов: 2. Длина текста сейчас: 1 символ."
             data-error-pattern="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
@@ -61,7 +61,7 @@
       <h2 class="popup__heading">Новое место</h2>
       <form id="profile-addcard" name="profile-addcard" class="form" novalidate>
         <input type="text" id="card-name" name="cardName" placeholder="Название" class="form__input" required
-          minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-ЯёЁ0-9_ -]+$"
+          minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-ЯёЁ_ -]+$"
           data-error-empty-string="Вы пропустили это поле."
           data-error-semi-empty-string="Минимальное количество символов: 2. Длина текста сейчас: 1 символ."
           data-error-pattern="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">

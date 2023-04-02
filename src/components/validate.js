@@ -1,4 +1,10 @@
-import { formProfileEdit, formAddCard, } from '../index.js';
+import { formProfileEdit, formAddCard, validationSettings } from '../index.js';
+
+const toggleButtonState = (inputList, saveButton) => {
+  const isValid = inputList.every((input) => input.validity.valid);
+  saveButton.disabled = !isValid;
+  saveButton.classList.toggle(validationSettings.inactiveButtonClass, !isValid);
+};
 
 const setEventListeners = (formElement, validationSettings) => {
   const saveButton = formElement.querySelector(validationSettings.submitButtonSelector);
@@ -16,60 +22,45 @@ const setEventListeners = (formElement, validationSettings) => {
     errorElement.classList.remove(validationSettings.inputErrorClass);
   };
 
-  const toggleButtonState = () => {
-    if (inputList.some((inputElement) => !inputElement.validity.valid || inputElement.value.trim() === '')) {
-      saveButton.setAttribute('disabled', true);
-      saveButton.classList.add(validationSettings.inactiveButtonClass);
-    } else {
-      saveButton.removeAttribute('disabled');
-      saveButton.classList.remove(validationSettings.inactiveButtonClass);
-    }
-  };
-
-
   const checkInputValidity = (inputElement) => {
     const errorElement = inputElement.nextElementSibling;
-    if (inputElement.value.trim() === '') {
+    if (inputElement.value === '') {
       showInputError(inputElement);
       errorElement.textContent = inputElement.getAttribute('data-error-empty-string');
-
     } else if (inputElement.type === 'url' && inputElement.validity.typeMismatch) {
       showInputError(inputElement);
       errorElement.textContent = inputElement.getAttribute('data-error-link');
-
     } else if (inputElement.value.trim().length === 1) {
       showInputError(inputElement);
       errorElement.textContent = inputElement.getAttribute('data-error-semi-empty-string');
-
-    } else if (inputElement.validity.patternMismatch || /\d/.test(inputElement.value)) {
+    } else if (inputElement.validity.patternMismatch) {
       showInputError(inputElement);
       errorElement.textContent = inputElement.getAttribute('data-error-pattern');
-
     } else {
       hideInputError(inputElement);
     }
-    toggleButtonState();
+    toggleButtonState(inputList, saveButton);
   };
+
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValidity(inputElement);
-      toggleButtonState();
     });
   });
-  toggleButtonState();
+  toggleButtonState(inputList, saveButton);
 };
 
 const enableValidation = (validationSettings) => {
-  const formElements = [formAddCard, formProfileEdit];
-  formElements.forEach((formElement) => {
-  formElement.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-  });
-
-  setEventListeners(formElement,validationSettings );
-});
-
+  setEventListeners(formProfileEdit, validationSettings);
+  setEventListeners(formAddCard, validationSettings);
 }
 
-export { enableValidation }
+const toggleButtonStateFormCard = () => {
+  toggleButtonState(Array.from(formAddCard.querySelectorAll(validationSettings.inputSelector)), formAddCard.querySelector(validationSettings.submitButtonSelector));
+};
+
+const toggleButtonStateProfileEdit = () => {
+  toggleButtonState(Array.from(formProfileEdit.querySelectorAll(validationSettings.inputSelector)), formProfileEdit.querySelector(validationSettings.submitButtonSelector));
+};
+export { enableValidation, toggleButtonStateFormCard, toggleButtonStateProfileEdit }

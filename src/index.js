@@ -2,7 +2,7 @@ import './pages/style.css';
 import { initialCards, addCard, submitAddCard } from './components/cards.js';
 import { openPopup, closePopup } from './components/utils.js'
 import { openProfileEditForm, handleProfileForm } from './components/modal.js'
-import { enableValidation } from './components/validate.js'
+import { enableValidation, toggleButtonStateProfileEdit, toggleButtonStateFormCard } from './components/validate.js'
 
 export const profileContainer = document.querySelector('.profile__container');
 export const profileEditButton = profileContainer.querySelector('.profile__info-edit-button');
@@ -46,19 +46,19 @@ export const validationSettings = {
       required: true,
       minlength: 2,
       maxlength: 40,
-      pattern: /^[a-zA-Zа-яА-ЯёЁ0-9_ -]+$/,
+      pattern: /^[a-zA-Zа-яА-ЯёЁ_ -]+$/,
     },
     activity: {
       required: true,
       minlength: 2,
       maxlength: 200,
-      pattern: /^[a-zA-Zа-яА-ЯёЁ0-9_ -]+$/,
+      pattern: /^[a-zA-Zа-яА-ЯёЁ_ -]+$/,
     },
     place: {
       required: true,
       minlength: 2,
       maxlength: 30,
-      pattern: /^[a-zA-Zа-яА-ЯёЁ0-9_ -]+$/,
+      pattern: /^[a-zA-Zа-яА-ЯёЁ_ -]+$/,
     },
     link: {
       required: true,
@@ -69,9 +69,15 @@ export const validationSettings = {
 
 enableValidation(validationSettings)
 
-cardPopupOpenButton.addEventListener('mousedown', () => openPopup(cardPopup));
+cardPopupOpenButton.addEventListener('mousedown', () => {
+  openPopup(cardPopup);
+  toggleButtonStateFormCard();
+});
 
-profileEditButton.addEventListener('mousedown', () => openProfileEditForm());
+profileEditButton.addEventListener('mousedown', () => {
+  openProfileEditForm();
+  toggleButtonStateProfileEdit()
+});
 
 popupCloseButtons.forEach((popupCloseButton) => {
   const popup = popupCloseButton.closest('.popup');
