@@ -1,30 +1,39 @@
 import './pages/style.css';
-import { initialCards, addCard, submitAddCard } from './components/cards.js';
+import { submitAddCard } from './components/cards.js';
 import { openPopup, closePopup } from './components/utils.js'
-import { openProfileEditForm, handleProfileForm } from './components/modal.js'
+import { openProfileEditForm, handleProfileForm, setProfileAvatar } from './components/modal.js'
 import { enableValidation, toggleButtonStateProfileEdit, toggleButtonStateFormCard } from './components/validate.js'
-
+import { importInitialCards, getUserInitials } from './components/api.js';
 export const profileContainer = document.querySelector('.profile__container');
-export const profileEditButton = profileContainer.querySelector('.profile__info-edit-button');
-export const formProfileEdit = document.querySelector('#profile-edit');
-export const formAddCard = document.querySelector('#profile-addcard');
-export const nameInput = document.querySelector('#user-name');
-export const activityInput = document.querySelector('#user-activity');
-export const profilePopup = document.querySelector('#profile-popup');
+export const profileAvatar = profileContainer.querySelector('.profile__avatar-image')
+export const profileAvatarEditButton = profileContainer.querySelector('.profile__avatar-edit-button')
 export const profileName = profileContainer.querySelector('.profile__info-name');
 export const profileActivity = profileContainer.querySelector('.profile__info-activity');
-export const cardPopup = document.querySelector('#card-popup');
+export const profileEditButton = profileContainer.querySelector('.profile__info-edit-button');
 export const cardPopupOpenButton = document.querySelector('.profile__addcard-button');
+export const profileAvatarPopup = document.querySelector('#confirm-avatar-popup');
+export const profilePopup = document.querySelector('#profile-popup');
+export const cardPopup = document.querySelector('#card-popup');
+export const imagePopup = document.querySelector('#image-popup');
+export const confirmationPopup = document.querySelector('#confirm-delete-popup');
+export const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 export const cardContainer = document.querySelector('.elements');
 export const cardTemplate = document.querySelector('#element-template').content;
-export const cardName = document.querySelector('#card-name');
-export const cardLink = document.querySelector('#card-url');
-export const imagePopup = document.querySelector('#image-popup');
-export const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 export const popupImageContainer = document.querySelector('.popup__image-container');
-export const popupImage = document.querySelector('.popup__image');
-export const popupCaption = document.querySelector('.popup__image-caption');
-
+export const popupImage = popupImageContainer.querySelector('.popup__image');
+export const popupCaption = popupImageContainer.querySelector('.popup__image-caption');
+export const formProfileEdit = document.querySelector('#profile-edit');
+export const nameInput = formProfileEdit.querySelector('#user-name');
+export const activityInput = formProfileEdit.querySelector('#user-activity');
+export const submitButtonProfile = document.getElementById('submitButtonProfile')
+export const profileAvatarForm = document.querySelector('#ConfirmAvatar');
+export const avatarInput = document.querySelector('#avatar-url');
+export const submitButtonAvatar = document.getElementById('submitButtonAvatar')
+export const formAddCard = document.querySelector('#profile-addcard');
+export const cardName = formAddCard.querySelector('#card-name');
+export const cardLink = formAddCard.querySelector('#card-url');
+export const submitButtonCard = document.getElementById('submitButtonCard')
+export const userId = "99972b32a73a45c3db68b1e2";
 export const validationSettings = {
   formSelector: '.form',
   inputSelector: '.form__input',
@@ -69,6 +78,11 @@ export const validationSettings = {
 
 enableValidation(validationSettings)
 
+profileAvatarEditButton.addEventListener('mousedown', () => {
+  openPopup(profileAvatarPopup);
+  toggleButtonStateFormCard();
+});
+
 cardPopupOpenButton.addEventListener('mousedown', () => {
   openPopup(cardPopup);
   toggleButtonStateFormCard();
@@ -76,7 +90,7 @@ cardPopupOpenButton.addEventListener('mousedown', () => {
 
 profileEditButton.addEventListener('mousedown', () => {
   openProfileEditForm();
-  toggleButtonStateProfileEdit()
+  toggleButtonStateProfileEdit();
 });
 
 popupCloseButtons.forEach((popupCloseButton) => {
@@ -84,11 +98,14 @@ popupCloseButtons.forEach((popupCloseButton) => {
   popupCloseButton.addEventListener('mousedown', (event) => { closePopup(popup) });
 });
 
-formAddCard.addEventListener('submit', submitAddCard)
-
-initialCards.forEach(function (card) {
-  addCard(card.name, card.link)
-});
+formAddCard.addEventListener('submit', submitAddCard);
 
 formProfileEdit.addEventListener('submit', handleProfileForm);
+
+profileAvatarForm.addEventListener('submit', setProfileAvatar);
+
+getUserInitials(nameInput, activityInput);
+
+importInitialCards();
+
 

@@ -1,4 +1,4 @@
-import { formProfileEdit, formAddCard, validationSettings } from '../index.js';
+import { formProfileEdit, formAddCard, profileAvatarForm, validationSettings } from '../index.js';
 
 const toggleButtonState = (inputList, saveButton) => {
   const isValid = inputList.every((input) => input.validity.valid);
@@ -41,8 +41,7 @@ const setEventListeners = (formElement, validationSettings) => {
     }
     toggleButtonState(inputList, saveButton);
   };
-
-
+  
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValidity(inputElement);
@@ -54,13 +53,14 @@ const setEventListeners = (formElement, validationSettings) => {
 const enableValidation = (validationSettings) => {
   setEventListeners(formProfileEdit, validationSettings);
   setEventListeners(formAddCard, validationSettings);
+  setEventListeners(profileAvatarForm, validationSettings);
 }
 
 const toggleButtonStateFormCard = () => {
   toggleButtonState(Array.from(formAddCard.querySelectorAll(validationSettings.inputSelector)), formAddCard.querySelector(validationSettings.submitButtonSelector));
 };
-
 const toggleButtonStateProfileEdit = () => {
   toggleButtonState(Array.from(formProfileEdit.querySelectorAll(validationSettings.inputSelector)), formProfileEdit.querySelector(validationSettings.submitButtonSelector));
 };
+
 export { enableValidation, toggleButtonStateFormCard, toggleButtonStateProfileEdit }

@@ -12,6 +12,7 @@
   margin: 0;
   cursor: pointer;
   z-index: 1;
+  display: none;
 }
 
 .element__delete-button:hover {

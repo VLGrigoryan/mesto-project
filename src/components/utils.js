@@ -26,4 +26,12 @@ function handleOverlayClick(evt) {
   }
 }
 
-export { openPopup, closePopup }
+const buttonLoadingState = (loadingText, defaultText, isLoading, submitButton) => {
+  if (isLoading) {
+    submitButton.textContent = loadingText;
+  } else {
+    submitButton.textContent = defaultText;
+  }
+}
+
+export { openPopup, closePopup, buttonLoadingState }
