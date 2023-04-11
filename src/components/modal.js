@@ -18,11 +18,10 @@ export function handleProfileForm(event) {
     .then(userData => {
       profileName.textContent = userData.name;
       profileActivity.textContent = userData.about;
+      buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonProfile);
       closePopup(profilePopup);
     })
-    .finally(() => {
-      buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonProfile);
-    });
+    .catch(error => { console.error(error) });
 }
 
 export function setProfileAvatar(event) {
@@ -31,10 +30,12 @@ export function setProfileAvatar(event) {
   profileAvatar.src = newAvatar;
   buttonLoadingState('Сохранение...', 'Сохранить', true, submitButtonAvatar);
   updateUserAvatar(newAvatar, validationSettings)
-    .finally(() => {
+    .then(() => {
       buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonAvatar);
       closePopup(profileAvatarPopup)
+      avatarInput.value = ''
     })
+    .catch(error => { console.error(error) })
 }
 
 

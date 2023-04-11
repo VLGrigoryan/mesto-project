@@ -1,9 +1,10 @@
 import './pages/style.css';
-import { submitAddCard } from './components/cards.js';
+import { submitAddCard, addCard } from './components/cards.js';
 import { openPopup, closePopup } from './components/utils.js'
 import { openProfileEditForm, handleProfileForm, setProfileAvatar } from './components/modal.js'
 import { enableValidation, toggleButtonStateProfileEdit, toggleButtonStateFormCard } from './components/validate.js'
-import { importInitialCards, getUserInitials } from './components/api.js';
+import { getUserData, importInitialCards } from './components/api';
+
 export const profileContainer = document.querySelector('.profile__container');
 export const profileAvatar = profileContainer.querySelector('.profile__avatar-image')
 export const profileAvatarEditButton = profileContainer.querySelector('.profile__avatar-edit-button')
@@ -33,7 +34,9 @@ export const formAddCard = document.querySelector('#profile-addcard');
 export const cardName = formAddCard.querySelector('#card-name');
 export const cardLink = formAddCard.querySelector('#card-url');
 export const submitButtonCard = document.getElementById('submitButtonCard')
-export const userId = "99972b32a73a45c3db68b1e2";
+export const userInfo = {
+  id: null
+}
 export const validationSettings = {
   formSelector: '.form',
   inputSelector: '.form__input',
@@ -104,8 +107,20 @@ formProfileEdit.addEventListener('submit', handleProfileForm);
 
 profileAvatarForm.addEventListener('submit', setProfileAvatar);
 
-getUserInitials(nameInput, activityInput);
 
-importInitialCards();
-
-
+Promise.all([
+  getUserData(),
+  importInitialCards()
+]).then(([userData, cardsData]) => {
+  profileName.textContent = userData.name;
+  profileActivity.textContent = userData.about;
+  profileAvatar.src = userData.avatar;
+  profileAvatar.alt = userData.name;
+  userInfo.id = userData._id
+  cardsData.reverse().forEach((data) => {
+    addCard(data);
+  });
+})
+  .catch(error => {
+    console.error(error);
+  });

@@ -1,52 +1,34 @@
-import { addCard } from './cards.js';
-import { nameInput, activityInput, profileName, profileActivity, profileAvatar } from '../index.js';
+import { nameInput, activityInput} from '../index.js';
 
-export function importInitialCards() {
-  fetch('https://nomoreparties.co/v1/plus-cohort-22/cards', {
-    headers: {
-      authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a'
-    }
-  })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(cardsData => {
-      cardsData.reverse().forEach((data) => {
-        addCard(data);
-      });
-    })
-    .catch(error => {
-      console.error(error);
-    });
+const BASE_URL = 'https://nomoreparties.co/v1/plus-cohort-22';
+
+function getResponseData(res) {
+  if (!res.ok) {
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+  return res.json();
 }
 
-export function getUserInitials() {
-  fetch('https://nomoreparties.co/v1/plus-cohort-22/users/me', {
+export function importInitialCards() {
+ return fetch(`${BASE_URL}/cards`, {
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a'
     }
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(userData => {
-      console.log(userData)
-      profileName.textContent = userData.name;
-      profileActivity.textContent = userData.about;
-      profileAvatar.src = userData.avatar;
-      profileAvatar.alt = userData.name
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
+}
+
+export function getUserData() {
+  return fetch(`${BASE_URL}/users/me`, {
+    headers: {
+      authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a'
+    }
+  })
+    .then(res => getResponseData(res))
 }
 
 export function updateUserProfile() {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-22/users/me', {
+  return fetch(`${BASE_URL}/users/me`, {
     method: 'PATCH',
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a',
@@ -57,18 +39,11 @@ export function updateUserProfile() {
       about: activityInput.value,
     })
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
 }
 
 export function updateUserAvatar(newAvatar) {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-22/users/me/avatar', {
+  return fetch(`${BASE_URL}/users/me/avatar`, {
     method: 'PATCH',
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a',
@@ -78,18 +53,12 @@ export function updateUserAvatar(newAvatar) {
       avatar: newAvatar,
     })
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
+
 }
 
 export function uploadNewCard(name, link) {
-  return fetch('https://nomoreparties.co/v1/plus-cohort-22/cards', {
+  return fetch(`${BASE_URL}/cards`, {
     method: 'POST',
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a',
@@ -100,79 +69,38 @@ export function uploadNewCard(name, link) {
       link: link,
     })
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(cardsData => {
-      addCard(cardsData)
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
 }
 
-export function deleteUploadedCard(data, cardElement) {
-  return fetch(`https://nomoreparties.co/v1/plus-cohort-22/cards/${data._id}`, {
+export function deleteUploadedCard(data) {
+  return fetch(`${BASE_URL}/cards/${data._id}`, {
     method: 'DELETE',
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a',
     }
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(() => {
-      cardElement.closest('.element').remove()
-      console.log(data)
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
 }
 
-export function uploadlikes(data, cardlikes) {
-  fetch(`https://nomoreparties.co/v1/plus-cohort-22/cards/likes/${data._id}`, {
+export function uploadlikes(data) {
+  return fetch(`${BASE_URL}/cards/likes/${data._id}`, {
     method: 'PUT',
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a',
       'Content-Type': 'application/json'
     },
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(card => {
-      cardlikes.textContent = card.likes.length;
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
 }
 
-export function uploadDislikes(data, cardlikes) {
-  fetch(`https://nomoreparties.co/v1/plus-cohort-22/cards/likes/${data._id}`, {
+export function uploadDislikes(data) {
+  return fetch(`${BASE_URL}/cards/likes/${data._id}`, {
     method: 'DELETE',
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a',
       'Content-Type': 'application/json'
     },
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-    })
-    .then(card => {
-      cardlikes.textContent = card.likes.length;
-    })
-    .catch(error => {
-      console.error(error);
-    });
+    .then(res => getResponseData(res))
 }
 
