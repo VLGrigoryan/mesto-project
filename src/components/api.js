@@ -1,5 +1,3 @@
-import { nameInput, activityInput} from '../index.js';
-
 const BASE_URL = 'https://nomoreparties.co/v1/plus-cohort-22';
 
 function getResponseData(res) {
@@ -10,7 +8,7 @@ function getResponseData(res) {
 }
 
 export function importInitialCards() {
- return fetch(`${BASE_URL}/cards`, {
+  return fetch(`${BASE_URL}/cards`, {
     headers: {
       authorization: 'd00ddee1-e29e-4e26-92aa-43ddefc5b31a'
     }
@@ -27,7 +25,7 @@ export function getUserData() {
     .then(res => getResponseData(res))
 }
 
-export function updateUserProfile() {
+export function updateUserProfile(name, about) {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'PATCH',
     headers: {
@@ -35,8 +33,8 @@ export function updateUserProfile() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      name: nameInput.value,
-      about: activityInput.value,
+      name: name,
+      about: about,
     })
   })
     .then(res => getResponseData(res))

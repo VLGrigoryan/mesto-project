@@ -10,16 +10,18 @@ export function openProfileEditForm() {
 
 export function handleProfileForm(event) {
   event.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileActivity.textContent = activityInput.value;
-  profileAvatar.alt = nameInput.value;
+  const newName = nameInput.value;
+  const newAbout = activityInput.value;
+  profileAvatar.alt = newName;
   buttonLoadingState('Сохранение...', 'Сохранить', true, submitButtonProfile);
-  updateUserProfile()
+  updateUserProfile(newName, newAbout)
     .then(userData => {
-      profileName.textContent = userData.name;
-      profileActivity.textContent = userData.about;
+      profileName.textContent = nameInput.value;
+      profileActivity.textContent = activityInput.value;
       buttonLoadingState('Сохранение...', 'Сохранить', false, submitButtonProfile);
       closePopup(profilePopup);
+      profileName.textContent = userData.name;
+      profileActivity.textContent = userData.about;
     })
     .catch(error => { console.error(error) });
 }
