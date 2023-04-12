@@ -9,7 +9,7 @@
 .profile{align-content:center;align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between}@media screen and (max-width:878px){.profile{align-items:center;flex-direction:column;justify-content:center;margin:auto 19px 36px}}
 .profile__container{display:flex;justify-content:flex-start}@media screen and (max-width:878px){.profile__container{align-items:center;flex-wrap:wrap;justify-content:center;min-width:282px}}
 .profile__avatar-container{display:flex;max-height:120px;position:relative}
-.profile__avatar-image{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:150px;width:120px}
+.profile__avatar-image{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:150px;-o-object-fit:cover;object-fit:cover;width:120px}
 .profile__avatar-edit-button{background-color:rgba(0,0,0,.8);background-image:url(a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;background-size:cover;background-size:26px 26px;border:none;border-radius:150px;cursor:pointer;height:120px;opacity:0;padding:0;position:absolute;transition:opacity .5s;width:120px}.profile__avatar-edit-button:hover{opacity:1;transition:opacity .3s}
 .profile__info{align-items:center;display:flex;flex-direction:row;margin:0 0 0 26.25px}
 .profile__user-info{margin:0 auto}
