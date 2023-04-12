@@ -50,7 +50,7 @@ export function createCard(data) {
   }
 
   cardLikeButton.addEventListener('click', handleLike);
-  if (data.likes.some(item => item._id === data.owner._id)) {
+  if (data.likes.some(item => item._id === userInfo.id)) {
     cardLikeButton.classList.add('element__like-button_checked')
   };
   cardImage.addEventListener('click', () => {
